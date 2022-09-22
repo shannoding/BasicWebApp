@@ -19,6 +19,9 @@ public class QueryProcessor {
         else if (query.toLowerCase().contains("name")) {
             return "basic-web-0";
         }
+        else if (query.toLowerCase().contains("Eiffel")) {
+            return "Paris";
+        }
         else if (query.toLowerCase().contains("plus")) {
             String[] parts = query.split(" ");
             int num1 = Integer.parseInt(parts[3]);
@@ -27,11 +30,12 @@ public class QueryProcessor {
         }
         else if (query.toLowerCase().contains("largest")) {
             String[] parts = query.split(" ");
-            int num1 = Integer.parseInt(cutComma(parts[9]));
-            int num2 = Integer.parseInt(cutComma(parts[10]));
-            int num3 = Integer.parseInt(cutComma(parts[11]));
-            int num4 = Integer.parseInt(parts[12]);
-            int max = Math.max(Math.max(num1, num2), Math.max(num3, num4));
+            int max = Integer.parseInt(parts[parts.length - 1]);
+            for (int i = 9; i < parts.length - 1; i++) {
+                int num = Integer.parseInt(cutComma(parts[i]));
+                max = Math.max(max, num);
+
+            }
             return String.valueOf(max);
         }
         else if (query.toLowerCase().contains("multiplied by")) {
