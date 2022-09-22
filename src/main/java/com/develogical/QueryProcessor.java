@@ -3,7 +3,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class QueryProcessor {
-
+    private String cutComma(String s) {
+        return s.substring(0, s.length() - 1);
+    }
     public String process(String query) {
         System.out.println("------------------");
         System.out.println(query);
@@ -25,12 +27,18 @@ public class QueryProcessor {
         }
         else if (query.toLowerCase().contains("largest")) {
             String[] parts = query.split(" ");
-            int num1 = Integer.parseInt(parts[9]);
-            int num2 = Integer.parseInt(parts[10]);
-            int num3 = Integer.parseInt(parts[11]);
+            int num1 = Integer.parseInt(cutComma(parts[9]));
+            int num2 = Integer.parseInt(cutComma(parts[10]));
+            int num3 = Integer.parseInt(cutComma(parts[11]));
             int num4 = Integer.parseInt(parts[12]);
             int max = Math.max(Math.max(num1, num2), Math.max(num3, num4));
             return String.valueOf(max);
+        }
+        else if (query.toLowerCase().contains("multiplied by")) {
+            String[] parts = query.split(" ");
+            int num1 = Integer.parseInt(parts[3]);
+            int num2 = Integer.parseInt(parts[6]);
+            return String.valueOf(num1 * num2);
         }
         return "";
     }
