@@ -18,13 +18,13 @@ public class QueryProcessor {
             return "basic-web-0";
         }
         else if (query.toLowerCase().contains("plus")) {
-            String[] parts = query.split("%20");
+            String[] parts = query.split(" ");
             int num1 = Integer.parseInt(parts[3]);
             int num2 = Integer.parseInt(parts[5]);
             return String.valueOf(num1 + num2);
         }
         else if (query.toLowerCase().contains("largest")) {
-            String[] parts = query.split("%20");
+            String[] parts = query.split(" ");
             int num1 = Integer.parseInt(parts[9]);
             int num2 = Integer.parseInt(parts[10]);
             int num3 = Integer.parseInt(parts[11]);
