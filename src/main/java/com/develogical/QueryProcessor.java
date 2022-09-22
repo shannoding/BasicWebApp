@@ -18,7 +18,7 @@ public class QueryProcessor {
             String[] parts = query.split("%20");
             int num1 = Integer.parseInt(parts[3]);
             int num2 = Integer.parseInt(parts[5]);
-            return num1 + num2;
+            return String.valueOf(num1 + num2);
         }
         else if (query.toLowerCase().contains("largest")) {
             String[] parts = query.split("%20");
@@ -26,8 +26,8 @@ public class QueryProcessor {
             int num2 = Integer.parseInt(parts[10]);
             int num3 = Integer.parseInt(parts[11]);
             int num4 = Integer.parseInt(parts[12]);
-            return Math.max(Math.max(num1, num2), Math.max(num3, num4));
-        
+            int max = Math.max(Math.max(num1, num2), Math.max(num3, num4));
+            return String.valueOf(max);
         }
         return "";
     }
