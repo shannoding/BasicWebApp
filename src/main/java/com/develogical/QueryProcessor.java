@@ -5,6 +5,9 @@ import java.util.regex.Pattern;
 public class QueryProcessor {
 
     public String process(String query) {
+        System.out.println("------------------");
+        System.out.println(query);
+        System.out.println("--------------");
 
         if (query.toLowerCase().contains("shakespeare")) {
             return "William Shakespeare (26 April 1564 - 23 April 1616) was an " +
